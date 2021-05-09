@@ -61,3 +61,10 @@ Com um projeto maven criado adicione o código abaixo no `pom.xml`:
     </dependency>
 </dependencies>
 ```
+
+### Aula 01.08 - Faça como eu fiz
+
+### Aula 01.09 - O que aprendemos?
+- As desvantagens de se utilizar o JDBC para acessar bancos de dados em Java;
+- A história de criação do Hibernate e da JPA;
+- Como criar uma aplicação Maven e adicionar o Hibernate como dependência.
