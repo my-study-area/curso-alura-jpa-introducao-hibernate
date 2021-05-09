@@ -115,3 +115,7 @@ Com um projeto maven criado adicione o código abaixo no `pom.xml`:
     </persistence-unit>
 </persistence>
 ```
+
+### Aula 02.02 - Persistence Unit
+Qual o objetivo da tag `<persistence-unit>` no arquivo persistence.xml?  
+`R:` Agrupar as configurações de uma unidade de persistência, que representa um banco de dados utilizado pela aplicação
