@@ -26,3 +26,7 @@ Quais as principais desvantagens do JDBC, das quais a JPA foi criada para resolv
 - Após a especificação o Hibernate implementou o JPA em 2010, utilizando o JPA 2.
 - `Hibernate`, `EclipseLink` e `OpenJPA` são implementações do JPA.
 - EclipseLink é a implementação de referência do JPA e é lançada junto as atualizações do JPA.
+
+### Aula 01.06 - Diferença entre Hibernate e JPA
+Qual a diferença entre Hibernate e JPA?  
+`R:` JPA é uma especificação e Hibernate é uma de suas implementações
