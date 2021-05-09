@@ -119,3 +119,48 @@ Com um projeto maven criado adicione o código abaixo no `pom.xml`:
 ### Aula 02.02 - Persistence Unit
 Qual o objetivo da tag `<persistence-unit>` no arquivo persistence.xml?  
 `R:` Agrupar as configurações de uma unidade de persistência, que representa um banco de dados utilizado pela aplicação
+
+### Aula 02.03 - Mapeando uma entidade
+- Para mapearmos uma entidade utilizamos as anotações: `@Entity`
+`@Table(name = "produtos")`, `@Id`, `@GeneratedValue(strategy = GenerationType.IDENTITY)`.
+- Ao mapearmos uma entidade é interessante utilizarmos as anotações da especificação no lugar das anotações das implementações. Exemplo: `javax.persistence.Entity;`
+```java
+package br.com.alura.loja.modelo;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "produtos")
+public class Produto {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nome;
+	private String descricao;
+	private BigDecimal preco;
+
+  // getters e setters
+}
+```
+- Também precisamos informar ao `persintence.xml` as classes mapeadas através da tag `<class>br.com.alura.modelo.Produto</class>` dentro do `<persistence-unit>`. No caso no Hibernate esse passo não é necessário e é realizado automaticamente, mas não podemos garantir que as outras implementações realizam o mesmo comportamento.
+```xml
+<persistence-unit name="loja" transaction-type="RESOURCE_LOCAL">
+    <class>br.com.alura.modelo.Produto</class>
+    <properties>
+        <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+        <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:loja"/>
+        <property name="javax.persistence.jdbc.user" value="sa"/>
+        <property name="javax.persistence.jdbc.password" value=""/>
+
+        <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+    </properties>
+</persistence-unit>
+```
+
