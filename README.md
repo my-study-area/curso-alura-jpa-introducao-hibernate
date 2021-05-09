@@ -68,3 +68,50 @@ Com um projeto maven criado adicione o código abaixo no `pom.xml`:
 - As desvantagens de se utilizar o JDBC para acessar bancos de dados em Java;
 - A história de criação do Hibernate e da JPA;
 - Como criar uma aplicação Maven e adicionar o Hibernate como dependência.
+
+## Módulo 02 - Configurações e EntityManager
+
+### Aula 02.01 - Arquivo persistence.xml
+- Crie o arquivo `src/main/resources/META-INF/persistence.xml`.
+- O arquivo incial do `persistence.xml` possui a seguinte estrutura inicial:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+</persistence>
+```
+- Para iniciar a configuração devemos adicionar a tag `persistence-unit`, dentro do `persistence.xml`, que possui duas propriedades: `name` e `transaction-type`. O `name` pode ser adicionado livremente, já a propriedade `transaction-type` pode recebe dois valores: `RESOURCE_LOCAL` ou `JTA`. No `JTA` (Java Transaction API) as transações são controladas por um servidor de aplicação como Wildfly ou Payara, já no `RESOURCE_LOCAL` são controladas pelo desenvolvedor. 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <persistence-unit name="loja" transaction-type="RESOURCE_LOCAL">
+    </persistence-unit>
+</persistence>
+```
+- Devemos ter um `persistence-unit` para cada banco de dados.
+- Dentro do `persistence-unit` possuímos algumas propriedades (`properties`) como driver, URL de conexão com o banco de dados, usuário e senha do bancos dados e etc.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+    <persistence-unit name="loja" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:loja"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+```
