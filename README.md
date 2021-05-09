@@ -30,3 +30,34 @@ Quais as principais desvantagens do JDBC, das quais a JPA foi criada para resolv
 ### Aula 01.06 - Diferença entre Hibernate e JPA
 Qual a diferença entre Hibernate e JPA?  
 `R:` JPA é uma especificação e Hibernate é uma de suas implementações
+
+### Aula 01.07 - Criando um projeto com JPA
+Com um projeto maven criado adicione o código abaixo no `pom.xml`:
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.8.0</version>
+            <configuration>
+                <release>8</release>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+<dependencies>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-entitymanager</artifactId>
+        <version>5.4.27.Final</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>1.4.200</version>
+    </dependency>
+</dependencies>
+```
