@@ -164,3 +164,7 @@ public class Produto {
 </persistence-unit>
 ```
 
+### Aula 02.04 - Entidades da JPA
+Qual a melhor definição de uma entidade JPA?  
+`R:` É uma classe que faz o mapeamento de uma tabela do banco de dados. Uma entidade JPA funciona como um espelho de uma tabela no banco de dados.
+
