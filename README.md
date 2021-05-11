@@ -168,3 +168,6 @@ public class Produto {
 Qual a melhor definição de uma entidade JPA?  
 `R:` É uma classe que faz o mapeamento de uma tabela do banco de dados. Uma entidade JPA funciona como um espelho de uma tabela no banco de dados.
 
+### Aula 02.05 - Persistindo uma entidade
+- adicionamos a propriedade`<property name="hibernate.show_sql" value="true"/>` no aquivo `src/main/resources/META-INF/persistence.xml` para dizer ao `Hibernate` para mostrar todas as instruções SQL no console.
+- adicionamos a propriedade `<property name="hibernate.hbm2ddl.auto" value="update"/>` no aquivo `src/main/resources/META-INF/persistence.xml` para dizer ao `Hibernate` qual será a forma de criação das tabelas do banco de dados.
