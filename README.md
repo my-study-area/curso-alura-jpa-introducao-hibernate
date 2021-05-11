@@ -171,3 +171,7 @@ Qual a melhor definição de uma entidade JPA?
 ### Aula 02.05 - Persistindo uma entidade
 - adicionamos a propriedade`<property name="hibernate.show_sql" value="true"/>` no aquivo `src/main/resources/META-INF/persistence.xml` para dizer ao `Hibernate` para mostrar todas as instruções SQL no console.
 - adicionamos a propriedade `<property name="hibernate.hbm2ddl.auto" value="update"/>` no aquivo `src/main/resources/META-INF/persistence.xml` para dizer ao `Hibernate` qual será a forma de criação das tabelas do banco de dados.
+
+### Aula 02.06 - Transação
+Quando devemos iniciar e comitar uma transação ao persistir uma entidade?  
+`R:` Ao realizar operações de escrita no banco de dados, como insert, update e delete. Operações de escrita exigem o uso de transações.
