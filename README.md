@@ -175,3 +175,10 @@ Qual a melhor definição de uma entidade JPA?
 ### Aula 02.06 - Transação
 Quando devemos iniciar e comitar uma transação ao persistir uma entidade?  
 `R:` Ao realizar operações de escrita no banco de dados, como insert, update e delete. Operações de escrita exigem o uso de transações.
+
+### Aula 02.07 - Faça como eu fiz
+
+### Aula 02.08 - O que aprendemos?
+- Como configurar a JPA via arquivo `persistence.xml`;
+- Como mapear entidades JPA;
+- Como utilizar o EntityManager para persistir entidades no banco de dados.
