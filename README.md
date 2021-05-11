@@ -194,3 +194,6 @@ Quando devemos iniciar e comitar uma transação ao persistir uma entidade?
 ### Aula 03.04 - Tipos de atributos
 Quais tipos de atributos podemos mapear sem a necessidade de configurações adicionais via anotações da JPA?  
 `R:` Os tipos primitivos, atributos do tipo String e algumas classes do Java, como LocalDate e BigDecimal. Esses tipos podem ser mapeados automaticamente, sem a necessidade de configurações adicionais.
+
+### Aula 03.05 - Mapeando relacionamentos
+- Utilizamos a anotação `@ManyToOne` para criar um relacionamento de muitos para um.
