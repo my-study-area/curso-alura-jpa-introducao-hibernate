@@ -182,3 +182,9 @@ Quando devemos iniciar e comitar uma transação ao persistir uma entidade?
 - Como configurar a JPA via arquivo `persistence.xml`;
 - Como mapear entidades JPA;
 - Como utilizar o EntityManager para persistir entidades no banco de dados.
+
+## Módulo 03 - Mapeando Entidades
+### Aula 03.01 - Projeto da aula anterior
+
+### Aula 03.02 - Organizando o código
+
