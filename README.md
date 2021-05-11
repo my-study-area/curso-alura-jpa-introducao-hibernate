@@ -188,3 +188,5 @@ Quando devemos iniciar e comitar uma transação ao persistir uma entidade?
 
 ### Aula 03.02 - Organizando o código
 
+### Aula 03.03 - Mais mapeamentos
+- Ao mapearmos uma propriedade de uma entidade com Enum, por padrão, os dados inseridos no banco serão armazenados pela ordem de inserção dos itens no Enum. É uma boa prática anotarmos uma entidade com Enum usando `@Enumerated(EnumType.STRING)` e evitarmos que a alteração dos valores de enum sejam alterados.
