@@ -201,3 +201,10 @@ Quais tipos de atributos podemos mapear sem a necessidade de configurações adi
 ### Aula 03.06 - Cardinalidade do relacionamento
 Aprendemos a utilizar a anotação @ManyToOne para indicar a cardinalidade de um relacionamento. Qual a cardinalidade padrão assumida pela JPA, no caso de um atributo que representa um relacionamento não possuir anotações?  
 `R:` É obrigatório adicionar alguma anotação de cardinalidade em todos os atributos que representam relacionamentos. A JPA não assume uma cardinalidade padrão quando não anotamos um atributo.
+
+### Aula 03.07 - Faça como eu fiz
+
+### Aula 03.08 - O que aprendemos?
+- Como escrever uma classe DAO utilizando a JPA;
+- Como mapear atributos do tipo Enum em uma entidade;
+- Como mapear um relacionamento entre entidades.
