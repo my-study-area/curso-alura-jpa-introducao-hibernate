@@ -208,3 +208,12 @@ Aprendemos a utilizar a anotação @ManyToOne para indicar a cardinalidade de um
 - Como escrever uma classe DAO utilizando a JPA;
 - Como mapear atributos do tipo Enum em uma entidade;
 - Como mapear um relacionamento entre entidades.
+
+## Módulo 04 - Ciclo de vida de uma entidade
+### Aula 04.01 - Projeto da aula anterior
+
+### Aula 04.02 - Estados no insert da entidade
+- No ciclo de vida das entidade JPA, no insert, temos: `transient`, `managed` e `detached`.
+- `Transient`: nunca foi persistida e não é gerenciada pelo JPA. Todas as alterações do objeto não são salvas no banco de dados. È o estado inicial de objeto, quando criamos um novo objeto.
+- `Managed`: é estado de um objeto ao passarmos para o método `.persist(obj)` do `EntityManager`. O objeto é gerenciado pelo JPA e todas alterações do objeto são refletidas no banco de dados quando utilizamos o método `commit()` do EntityManager. O método `flush()`  pode ser utilizado para refletir as alterações do objeto no banco de dados antes de executar o método `commit()`.
+- `Detached`: é o estado de um objeto que foi gerenciado pelo JPA, mas após o uso do método `.clear()` ou `.close()` do EntityManager ele deixa de sincronizar com o banco de dados.
