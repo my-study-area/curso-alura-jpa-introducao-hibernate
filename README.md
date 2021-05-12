@@ -235,3 +235,18 @@ em.flush();
 em.getTransaction().commit();
 em.close();
 ```
+
+### Aula 04.04 - Método merge
+Analise o seguinte trecho de código e indique qual o resultado esperado:
+```java
+em.getTransaction().begin();
+Produto produto = em.find(Produto.class, 1l);
+produto.setDescricao(“Teste 1”);
+em.flush();
+produto.setDescricao(“Teste 2”);
+em.merge(produto);
+produto.setDescricao(“Teste 3”);
+em.getTransaction().commit();
+em.close();
+```
+`R:` A entidade produto será atualizada no banco de dados com a descrição **Teste 3**. No código anterior o merge acabou sendo indiferente, pois a entidade já estava no estado Managed
