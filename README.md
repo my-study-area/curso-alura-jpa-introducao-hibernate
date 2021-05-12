@@ -217,3 +217,21 @@ Aprendemos a utilizar a anotação @ManyToOne para indicar a cardinalidade de um
 - `Transient`: nunca foi persistida e não é gerenciada pelo JPA. Todas as alterações do objeto não são salvas no banco de dados. È o estado inicial de objeto, quando criamos um novo objeto.
 - `Managed`: é estado de um objeto ao passarmos para o método `.persist(obj)` do `EntityManager`. O objeto é gerenciado pelo JPA e todas alterações do objeto são refletidas no banco de dados quando utilizamos o método `commit()` do EntityManager. O método `flush()`  pode ser utilizado para refletir as alterações do objeto no banco de dados antes de executar o método `commit()`.
 - `Detached`: é o estado de um objeto que foi gerenciado pelo JPA, mas após o uso do método `.clear()` ou `.close()` do EntityManager ele deixa de sincronizar com o banco de dados.
+
+### Aula 04.03 - Estados no update da entidade
+- A atualização dos dados no banco de dados de um objeto ocorre quando alteramos os valores de um objeto no estado `managed`, porém se o objeto estiver no estado `detached` precisamos passar o objeto para o estado `managed` utilizando o método `merge(obj)`.
+- Uma curiosidade do método `merge(obj)` é que ele não altera o objeto passado como parâmetro para o estado `managed`, e sim, retorna uma objeto `managed`. Então precisamos atribuir o retorno do método `merge(obj)` para uma variável para que seja possível alterar o valores e então persistir as alterações do objeto no banco de dados. Ex:
+```java
+em.getTransaction().begin();
+em.persist(celulares);
+celulares.setNome("update");
+em.flush();
+em.clear();
+
+celulares = em.merge(celulares);
+celulares.setNome("update 2");
+em.flush();
+
+em.getTransaction().commit();
+em.close();
+```
