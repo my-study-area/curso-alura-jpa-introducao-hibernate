@@ -256,3 +256,17 @@ em.close();
 ### Aula 04.05 - Estados no delete da entidade
 - Para trazermos um objeto do banco para o estado `managed` utilizamos o método `find()` de EntityManager.
 - O estado `removed` ocorre quando um objeto que está no estado `managed` é removido através do método `remove()` do entitymanager.
+
+### Aula 04.06 - Removendo uma entidade
+Analise o seguinte trecho de código e indique qual o resultado esperado:  
+```java
+em.getTransaction().begin();
+Produto produto = em.find(Produto.class, 1l);
+produto.setDescricao(“Teste 1”);
+em.flush();
+em.clear();
+em.remove(produto);
+em.getTransaction().commit();
+em.close();
+```
+`R:` Uma exception será lançada ao tentar remover a entidade produto. A entidade produto estava no estado Detached ao ser removida, algo que a JPA não permite
