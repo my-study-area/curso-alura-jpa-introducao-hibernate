@@ -252,3 +252,7 @@ em.getTransaction().commit();
 em.close();
 ```
 `R:` A entidade produto será atualizada no banco de dados com a descrição **Teste 3**. No código anterior o merge acabou sendo indiferente, pois a entidade já estava no estado Managed
+
+### Aula 04.05 - Estados no delete da entidade
+- Para trazermos um objeto do banco para o estado `managed` utilizamos o método `find()` de EntityManager.
+- O estado `removed` ocorre quando um objeto que está no estado `managed` é removido através do método `remove()` do entitymanager.
