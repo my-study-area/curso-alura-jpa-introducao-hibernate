@@ -270,3 +270,11 @@ em.getTransaction().commit();
 em.close();
 ```
 `R:` Uma exception será lançada ao tentar remover a entidade produto. A entidade produto estava no estado Detached ao ser removida, algo que a JPA não permite
+
+### Aula 04.07 - Faça como eu fiz
+
+### Aula 04.08 - O que aprendemos?
+- Como funciona o ciclo de vida de entidades JPA;
+- As transições de estados de uma entidade ao ser persistida;
+- As transições de estados de uma entidade ao ser atualizada;
+- As transições de estados de uma entidade ao ser removida.
