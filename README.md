@@ -210,6 +210,8 @@ Aprendemos a utilizar a anotação @ManyToOne para indicar a cardinalidade de um
 - Como mapear um relacionamento entre entidades.
 
 ## Módulo 04 - Ciclo de vida de uma entidade
+![Ciclo de vida de uma entidade](./cliclo-vida-jpa.png)
+
 ### Aula 04.01 - Projeto da aula anterior
 
 ### Aula 04.02 - Estados no insert da entidade
