@@ -286,3 +286,35 @@ em.close();
 - Para buscarmos um registro do banco de dado por id utilizamos o método `find` da classe EntityManager. Ex: `em.find(Produto.class, 1L);`.
 - Para buscarmos uma lista de produtos do banco de dados utilizamos o método `createQuery` da classe EntityManager. Ex: `em.createQuery("SELECT p FROM Produto p", Produto.class).getResultList();`.
 
+### Aula 05.03 - Consultas com filtros
+- Exemplo de consulta com filtro:
+```java
+String jpql = "SELECT p FROM Produto p WHERE p.nome = :nome";
+em.createQuery(jpql, Produto.class)
+    .setParameter("nome", nome)
+    .getResultList();
+```
+- Exemplo de consulta com relacionamento e filtro:
+```java
+String jpql = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome";
+em.createQuery(jpql, Produto.class)
+    .setParameter("nome", nome)
+    .getResultList();
+```
+- Para visualizarmos melhor as consultas sql nos logs podemos adicionar propriedade `<property name="hibernate.format_sql" value="true"/>` no arquivo `persistence.xml`. Exemplo de log formatado:
+```sql
+select
+    produto0_.id as id1_1_,
+    produto0_.categoria_id as categori6_1_,
+    produto0_.data as data2_1_,
+    produto0_.descricao as descrica3_1_,
+    produto0_.nome as nome4_1_,
+    produto0_.preco as preco5_1_ 
+from
+    produtos produto0_ cross 
+join
+    categorias categoria1_ 
+where
+    produto0_.categoria_id=categoria1_.id 
+    and categoria1_.nome=?
+```
