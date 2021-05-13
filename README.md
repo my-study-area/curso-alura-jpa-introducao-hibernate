@@ -359,3 +359,16 @@ em.createQuery(jpql, BigDecimal.class)
     .setParameter("nome", nome)
     .getSingleResult();
 ```
+
+### Aula 05.06 - Carregando parte da entidade
+Considere o seguinte trecho de código:
+```java
+public BigDecimal buscarPrecoDoProdutoComNome(String nome) {
+    String jpql = "SELECT p.preco FROM Produto p WHERE p.nome = :nome";
+    return em.createQuery(jpql, Produto.class)
+                .setParameter("nome", nome)
+                .getSingleResult();
+}
+```
+Por qual motivo o método anterior está incorreto?  
+`R:` A classe passada como parâmetro para o método createQuery está incorreta. O correto deveria ser `BigDecimal.class` e não `Produto.class`.
