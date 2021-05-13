@@ -318,3 +318,35 @@ where
     produto0_.categoria_id=categoria1_.id 
     and categoria1_.nome=?
 ```
+
+### Aula 05.04 - Consultas com JPQL
+Considere a seguinte tabela no banco de dados:
+```
+| tabela clientes               |
+|-------------------------------|
+| id              | bigint      |
+| nome            | varchar(255)|
+| dataNasc        | date        |
+```
+
+Mapeada para a seguinte entidade:
+```java
+@Entity
+@Table(name = “clientes”)
+public class Cliente {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nome;
+    private LocalDate dataNasc;
+
+}
+```
+
+E com a seguinte consulta em JPQL
+```sql
+select c from clientes c where dataNasc is not nullCOPIAR CÓDIGO
+```
+Por qual motivo a consulta anterior está incorreta?  
+`R:` O nome da entidade está incorreto no JPQL. Na consulta anterior está escrito o nome da tabela, ao invés do nome da entidade
