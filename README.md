@@ -278,3 +278,11 @@ em.close();
 - As transições de estados de uma entidade ao ser persistida;
 - As transições de estados de uma entidade ao ser atualizada;
 - As transições de estados de uma entidade ao ser removida.
+
+## Módulo 05 - Consultas com JPQL
+### Aula 05.01 - Projeto da aula anterior
+
+### Aula 05.02 - Consultando entidades
+- Para buscarmos um registro do banco de dado por id utilizamos o método `find` da classe EntityManager. Ex: `em.find(Produto.class, 1L);`.
+- Para buscarmos uma lista de produtos do banco de dados utilizamos o método `createQuery` da classe EntityManager. Ex: `em.createQuery("SELECT p FROM Produto p", Produto.class).getResultList();`.
+
