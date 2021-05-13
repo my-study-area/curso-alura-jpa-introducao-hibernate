@@ -350,3 +350,12 @@ select c from clientes c where dataNasc is not nullCOPIAR CÓDIGO
 ```
 Por qual motivo a consulta anterior está incorreta?  
 `R:` O nome da entidade está incorreto no JPQL. Na consulta anterior está escrito o nome da tabela, ao invés do nome da entidade
+
+### Aula 05.05 - Limitando dados de uma consulta
+- Exemplo de consulta retornando somente o preço do produto:
+```java
+String jpql = "SELECT p.preco FROM Produto p WHERE p.nome = :nome";
+em.createQuery(jpql, BigDecimal.class)
+    .setParameter("nome", nome)
+    .getSingleResult();
+```
