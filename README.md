@@ -372,3 +372,15 @@ public BigDecimal buscarPrecoDoProdutoComNome(String nome) {
 ```
 Por qual motivo o método anterior está incorreto?  
 `R:` A classe passada como parâmetro para o método createQuery está incorreta. O correto deveria ser `BigDecimal.class` e não `Produto.class`.
+
+### Aula 05.07 - Faça como eu fiz
+
+### Aula 05.08 - Projeto final do curso
+
+### Aula 05.09 - O que aprendemos?
+- Como realizar consultas com o método find do Entity Manager;
+- Como realizar consultas JPQL;
+- Como filtrar dados em consultas JPQL;
+- Como retornar apenas parte de uma entidade em uma consulta JPQL.
+
+### Aula 05.10 - Conclusão
